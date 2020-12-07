@@ -45,22 +45,28 @@ impl Node {
         message_router.register_address_type_handler(AddressType::Worker, self.worker_manager.clone());
         let (q, mut message_router) = message_router.get_enqueue_trait();
         let mr_ref = Rc::new(RefCell::new(message_router));
-        modules_to_poll.push_back(mr_ref.clone());
 
+        modules_to_poll.push_back(mr_ref.clone());
         modules_to_poll.push_back(self.worker_manager.clone());
+
+        let mut stop = false;
 
         loop {
             for p_ref in modules_to_poll.iter() {
                 let mut p = p_ref.deref().borrow_mut();
                 match p.poll(q.clone()) {
                     Ok(keep_going) => {
-                        if !keep_going { break; }
+                        if !keep_going {
+                            stop = true;
+                            break;
+                        }
                     }
                     Err(s) => {
                         return Err(s);
                     }
                 }
             }
+            if stop { break; }
             thread::sleep(time::Duration::from_millis(500));
         }
         Ok(())

@@ -47,7 +47,9 @@ impl MessageHandler for TestWorker {
     fn handle_message(&mut self, message: Message, q_ref: Rc<RefCell<dyn Enqueue<Message>>>) -> Result<bool, String> {
         libc_println!("TestWorker: {}", std::str::from_utf8(&message.message_body).unwrap());
         self.count += 1;
-        if self.count > 3 { return Ok(false); }
+        if self.count > 3 {
+            return Ok(false);
+        }
         Ok(true)
     }
 }
