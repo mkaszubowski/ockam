@@ -873,6 +873,8 @@ dependencies = [
  "hex",
  "ockam-common",
  "ockam-kex",
+ "ockam-kex-ffi",
+ "ockam-kex-xx",
  "ockam-queue-topic",
  "ockam-vault",
  "ockam-vault-ffi",
@@ -888,15 +890,47 @@ version = "0.1.0"
 name = "ockam-kex"
 version = "0.1.0"
 dependencies = [
- "arrayref",
  "failure",
- "ffi-support",
  "hex",
- "lazy_static",
  "ockam-common",
  "ockam-vault",
  "ockam-vault-software",
+]
+
+[[package]]
+name = "ockam-kex-ffi"
+version = "0.1.0"
+dependencies = [
+ "ffi-support",
+ "ockam-common",
+ "ockam-kex-xx",
+ "ockam-vault",
+ "ockam-vault-software",
+]
+
+[[package]]
+name = "ockam-kex-x3dh"
+version = "0.1.0"
+dependencies = [
+ "arrayref",
+ "hex",
+ "ockam-common",
+ "ockam-kex",
+ "ockam-vault",
+ "ockam-vault-software",
  "subtle",
+]
+
+[[package]]
+name = "ockam-kex-xx"
+version = "0.1.0"
+dependencies = [
+ "arrayref",
+ "hex",
+ "ockam-common",
+ "ockam-kex",
+ "ockam-vault",
+ "ockam-vault-software",
  "zeroize",
 ]
 
@@ -907,7 +941,7 @@ dependencies = [
  "hex",
  "ockam",
  "ockam-common",
- "ockam-kex",
+ "ockam-kex-xx",
  "ockam-router",
  "ockam-transport",
  "ockam-vault-software",
@@ -1014,7 +1048,7 @@ dependencies = [
  "hex",
  "ockam",
  "ockam-common",
- "ockam-kex",
+ "ockam-kex-xx",
  "ockam-router",
  "ockam-transport",
  "ockam-vault-file",
