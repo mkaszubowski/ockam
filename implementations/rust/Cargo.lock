@@ -949,7 +949,6 @@ dependencies = [
  "arrayref",
  "cfg-if 1.0.0",
  "downcast",
- "failure",
  "ockam-common",
  "zeroize",
 ]
