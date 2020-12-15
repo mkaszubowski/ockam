@@ -873,7 +873,6 @@ dependencies = [
  "hex",
  "ockam-common",
  "ockam-kex",
- "ockam-kex-ffi",
  "ockam-kex-xx",
  "ockam-queue-topic",
  "ockam-vault",
@@ -893,17 +892,6 @@ dependencies = [
  "failure",
  "hex",
  "ockam-common",
- "ockam-vault",
- "ockam-vault-software",
-]
-
-[[package]]
-name = "ockam-kex-ffi"
-version = "0.1.0"
-dependencies = [
- "ffi-support",
- "ockam-common",
- "ockam-kex-xx",
  "ockam-vault",
  "ockam-vault-software",
 ]
