@@ -883,6 +883,10 @@ dependencies = [
 [[package]]
 name = "ockam-common"
 version = "0.1.0"
+dependencies = [
+ "cfg-if 1.0.0",
+ "ffi-support",
+]
 
 [[package]]
 name = "ockam-kex"
